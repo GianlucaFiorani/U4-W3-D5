@@ -1,9 +1,10 @@
 package gianlucafiorani.dao;
 
 import gianlucafiorani.entities.User;
-import gianlucafiorani.exceptions.NotFoundException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+
+import java.util.UUID;
 
 public class UserDAO {
     private final EntityManager entityManager;
@@ -20,9 +21,9 @@ public class UserDAO {
         System.out.println("L'utente" + newUser.getId() + " è stato creato correttamente!");
     }
 
-    public User findById(long id) {
-        User found = entityManager.find(User.class, id);
-        if (found == null) throw new NotFoundException(id);
+    public User findById(String id) {
+        User found = entityManager.find(User.class, UUID.fromString(id));
+        //if (found == null) throw new NotFoundException(id);
         return found;
     }
 }
