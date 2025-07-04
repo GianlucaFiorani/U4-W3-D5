@@ -13,8 +13,8 @@ public class Book extends Catalog {
     public Book() {
     }
 
-    public Book(long id, String codeISBN, String title, int publicationYear, int pageNumb, String autor, Genre genre) {
-        super(id, codeISBN, title, publicationYear, pageNumb);
+    public Book(String codeISBN, String title, int publicationYear, int pageNumb, String autor, Genre genre) {
+        super(codeISBN, title, publicationYear, pageNumb);
         this.autor = autor;
         this.genre = genre;
     }
@@ -38,7 +38,8 @@ public class Book extends Catalog {
     @Override
     public String toString() {
         return "Book{" +
-                "autor='" + autor + '\'' +
+                super.toString() +
+                ", autor='" + autor + '\'' +
                 ", genre=" + genre +
                 '}';
     }

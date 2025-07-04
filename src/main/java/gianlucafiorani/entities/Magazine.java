@@ -12,8 +12,8 @@ public class Magazine extends Catalog {
     public Magazine() {
     }
 
-    public Magazine(long id, String codeISBN, String title, int publicationYear, int pageNumb, Periodicity periodicity) {
-        super(id, codeISBN, title, publicationYear, pageNumb);
+    public Magazine(String codeISBN, String title, int publicationYear, int pageNumb, Periodicity periodicity) {
+        super(codeISBN, title, publicationYear, pageNumb);
         this.periodicity = periodicity;
     }
 
@@ -28,7 +28,8 @@ public class Magazine extends Catalog {
     @Override
     public String toString() {
         return "Magazine{" +
-                "periodicity=" + periodicity +
+                super.toString() +
+                ", periodicity=" + periodicity +
                 '}';
     }
 }

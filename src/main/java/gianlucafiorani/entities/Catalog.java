@@ -28,8 +28,7 @@ public abstract class Catalog {
     public Catalog() {
     }
 
-    public Catalog(long id, String codeISBN, String title, int publicationYear, int pageNumb) {
-        this.id = id;
+    public Catalog(String codeISBN, String title, int publicationYear, int pageNumb) {
         this.codeISBN = codeISBN;
         this.title = title;
         this.publicationYear = publicationYear;
@@ -78,11 +77,10 @@ public abstract class Catalog {
 
     @Override
     public String toString() {
-        return "Catalog{" +
-                ", codeISBN='" + codeISBN + '\'' +
-                ", title='" + title + '\'' +
-                ", publicationYear=" + publicationYear +
-                ", pageNumb=" + pageNumb +
-                '}';
+        return
+                "codeISBN='" + codeISBN + '\'' +
+                        ", title='" + title + '\'' +
+                        ", publicationYear=" + publicationYear +
+                        ", pageNumb=" + pageNumb;
     }
 }
