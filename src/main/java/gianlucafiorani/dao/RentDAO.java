@@ -32,13 +32,13 @@ public class RentDAO {
     }
 
     public List<Rent> findUserRentList(UUID id) {
-        TypedQuery<Rent> query = entityManager.createQuery("SELECT r FROM Rent r WHERE r.userId = :id", Rent.class);
+        TypedQuery<Rent> query = entityManager.createQuery("SELECT r FROM Rent r WHERE r.userId = :id AND r.endDate IS NULL", Rent.class);
         query.setParameter("id", id);
         return query.getResultList();
     }
 
     public List<Rent> findExpiryRent() {
-        TypedQuery<Rent> query = entityManager.createQuery("SELECT r FROM Rent r WHERE r.expiryDate < :now", Rent.class);
+        TypedQuery<Rent> query = entityManager.createQuery("SELECT r FROM Rent r WHERE r.expiryDate < :now AND r.endDate IS NULL", Rent.class);
         query.setParameter("now", LocalDate.now());
         return query.getResultList();
     }
